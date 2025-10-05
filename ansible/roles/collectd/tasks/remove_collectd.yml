@@ -1,0 +1,24 @@
+---
+- name: Stop collectd service
+  service:
+    name: collectd
+    state: stopped
+    enabled: no
+  ignore_errors: yes
+
+- name: Remove collectd packages
+  apt:
+    name:
+      - collectd
+      - collectd-core
+    state: absent
+
+- name: Remove prometheus config file
+  file:
+    path: /etc/collectd.d/prometheus.conf
+    state: absent
+
+- name: Remove /etc/collectd.d directory (if you want to remove all config files)
+  file:
+    path: /etc/collectd.d
+    state: absent

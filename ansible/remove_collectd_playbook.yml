@@ -1,0 +1,7 @@
+---
+- name: Remove collectd from managed nodes
+  hosts: managed_nodes
+  become: yes
+  roles:
+    - role: collectd
+      collectd_state: remove

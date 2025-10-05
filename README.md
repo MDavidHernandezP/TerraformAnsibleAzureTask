@@ -1,3 +1,5 @@
+# IGNORE README THIS IS JUST A PLACEHOLDER FOR THE FUTURE TO BE MODIFIED
+
 [![Faker](https://img.shields.io/badge/Faker-Data%20Generator-orange)](https://faker.readthedocs.io/en/master/)
 
 # Data Warehouse creation ETL Pipeline

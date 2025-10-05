@@ -1,0 +1,12 @@
+---
+- name: Disable SELinux if enabled
+  command: setenforce 0
+  when: disable_selinux
+  register: selinux_change
+  ignore_errors: yes
+  become: yes
+
+- name: Reboot if SELinux was disabled
+  reboot:
+  when: selinux_change is changed
+  become: yes

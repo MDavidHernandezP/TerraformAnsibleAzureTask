@@ -1,0 +1,9 @@
+LoadPlugin write_prometheus
+<Plugin write_prometheus>
+  Port {{ collectd_port }}
+</Plugin>
+
+# Load additional collectd modules
+{% for plugin in collectd_plugins %}
+LoadPlugin {{ plugin }}
+{% endfor %}

@@ -1,0 +1,17 @@
+---
+- name: Manage collectd on managed nodes
+  hosts: all
+  become: yes
+  roles:
+    - role: collectd
+      collectd_state: install
+      prometheus_port: 9103
+      collectd_plugins:
+        - df
+        - processes
+        - protocols
+        - swap
+        - tcpconns
+        - uptime
+        - users
+        - vmem

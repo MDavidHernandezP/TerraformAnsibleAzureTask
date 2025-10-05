@@ -1,0 +1,18 @@
+---
+# Default behaviour: install collectd
+collectd_state: present        # "present" to install, "absent" to remove
+collectd_port: 9103            # prometheus exporter port
+collectd_plugins:
+  - df
+  - processes
+  - protocols
+  - swap
+  - tcpconns
+  - uptime
+  - users
+  - vmem
+# Package list (can be adjusted if your distro uses different package names)
+prometheus_port: 9103
+collectd_packages:
+  - collectd
+  - collectd-write-prometheus

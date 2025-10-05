@@ -1,0 +1,27 @@
+---
+- name: Update apt cache before install
+  apt:
+    update_cache: yes
+  become: yes
+
+- name: Install collectd (with core)
+  apt:
+    name:
+      - collectd
+      - collectd-core
+    state: present
+  become: yes
+
+- name: Deploy Prometheus config template
+  template:
+    src: prometheus.conf.j2
+    dest: /etc/collectd/collectd.conf.d/prometheus.conf
+  notify: restart collectd
+  become: yes
+
+- name: Enable and start collectd service
+  service:
+    name: collectd
+    state: started
+    enabled: yes
+  become: yes

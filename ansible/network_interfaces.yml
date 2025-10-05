@@ -1,0 +1,8 @@
+---
+- name: List network interfaces
+  hosts: managed_nodes
+  gather_facts: yes
+  tasks:
+    - name: Show interfaces
+      debug:
+        var: ansible_interfaces

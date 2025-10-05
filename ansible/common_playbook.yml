@@ -1,0 +1,16 @@
+---
+- name: Apply common role
+  hosts: managed_nodes
+  become: yes
+  roles:
+    - role: common
+      packages_list:
+        - curl
+        - lsof
+        - mc
+        - nano
+        - tar
+        - unzip
+        - vim
+        - zip
+      disable_selinux: false

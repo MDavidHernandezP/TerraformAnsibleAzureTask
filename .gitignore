@@ -37,3 +37,5 @@ terraform.rc
 terraform.tfvars
 .terraform/
 stuff.txt
+stuff2.txt
+README.md

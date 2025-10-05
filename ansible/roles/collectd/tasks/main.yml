@@ -1,0 +1,6 @@
+---
+- include_tasks: install_collectd.yml
+  when: collectd_state == "install"
+
+- include_tasks: remove_collectd.yml
+  when: collectd_state == "remove"
